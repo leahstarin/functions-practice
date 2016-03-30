@@ -15,7 +15,6 @@ function max(a,b){
     }
 
 }
-   console.log('hello');
    console.log("larger number", max(2,5));
    console.assert(max(5,10) === 8, "error");
 // ---------------------
@@ -78,15 +77,23 @@ console.log(rovarspraket("string"))
 // Define a function sum() and a function multiply() that sums and multiplies (respectively) all the numbers in an array of numbers. For example, sum([1,2,3,4]) should return 10, and multiply([1,2,3,4]) should return 24.
 // ---------------------
 
-function sum(number){s
+function sum(number){
     "use strict";
-    //...
+    var total = number.reduce(function(previousValue, currentValue, currentIndex, array) {
+  return previousValue + currentValue;
+  });
+  console.log(total)
 }
+sum([1, 2, 3, 4]);
 
-function multiply(){
+function multiply(number){
     "use strict";
-    //...
+    var total = number.reduce(function(previousValue, currentValue, currentIndex, array) {
+  return previousValue * currentValue;
+  });
+  console.log(total)
 }
+multiply([1, 2, 3, 4]);
 
 // ---------------------
 // Define a function reverse() that computes the reversal of a string. For example, reverse("jag testar") should return the string "ratset gaj".
@@ -141,7 +148,7 @@ function filterLongWords(words, i){
 		}
 		return filtered;
 	}
-  var wordlist = [ 'camp', 'hammock', 'castiron']
+  var wordList = [ 'camp', 'hammock', 'castiron']
   console.log('array of words longer than integer:', filterLongWords(wordList, 5));
 
 
@@ -151,14 +158,13 @@ function filterLongWords(words, i){
 
 function charFreq(string){
     "use strict";
-    var frequecyList = {};
-    for (var i = 0; i < string.length; i++){
-      if (frequencyList[string[i]]){
-        frequencyList[string[i]]++
-      }else{
-        frequencyList[string[i]] = 1;
-      }
-    }
-    return frequencyList;
-
-    console.log('frequency Listing as Object:', charFreq('abbabcbdbabdbdbabababcbcbab'));
+    var frequencies = {};
+      for (var i=string.length-1; i>=0; i--){
+        if (!frequencies.hasOwnProperty(string.charAt(i))){
+          frequencies[string.charAt(i)] = 1;
+        }else {
+          frequencies[string.charAt(i)] += 1;
+        }
+      } return frequencies;
+}
+console.log('the total number of frequency is: ', charFreq('abbabcbdbabdbdbabababcbcbab'));
