@@ -8,14 +8,16 @@
 
 function max(a,b){
     "use strict";
-    if (a > b ) {
+   if (a > b ) {
       return a;
     } else {
      return b;
     }
-    //...
+
 }
-console.assert(max([a,b]) === b, "error";
+   console.log('hello');
+   console.log("larger number", max(2,5));
+   console.assert(max(5,10) === 8, "error");
 // ---------------------
 // Define a function maxOfThree() that takes three numbers as arguments and returns the largest of them.
 // ---------------------
@@ -32,13 +34,13 @@ function maxOfThree(a,b,c){
 
     //...
 }
-console.assert( maxOfThree([a,b,c]) === c,"maxOfThree":
+console.assert(maxOfThree(1,2,3) === 3,"maxOfThree");
 
 // ---------------------
 // Write a function that takes a character (i.e. a string of length 1) and returns true if it is a vowel, false otherwise.
 // ---------------------
 
-function isVowel(char){
+function isVowel(x){
     "use strict";
     if (x == "a"  || x == "e" || x == "i" || x =="o" || x =="u"){
       return true;
@@ -46,11 +48,10 @@ function isVowel(char){
       return false;
     }
 
- console.assert
 
-    //...
 }
-
+  console.log("If character is a vowel", isVowel("a"));
+  console.assert(isVowel("a") === true, "error");
 // ---------------------
 // Write a function rovarspraket() that will translate a text into "rövarspråket". That is, double every consonant and place an occurrence of "o" in between. For example, translate("this is fun") should return the string "tothohisos isos fofunon".
 // ---------------------
@@ -77,7 +78,7 @@ console.log(rovarspraket("string"))
 // Define a function sum() and a function multiply() that sums and multiplies (respectively) all the numbers in an array of numbers. For example, sum([1,2,3,4]) should return 10, and multiply([1,2,3,4]) should return 24.
 // ---------------------
 
-function sum(){
+function sum(number){s
     "use strict";
     //...
 }
@@ -90,11 +91,22 @@ function multiply(){
 // ---------------------
 // Define a function reverse() that computes the reversal of a string. For example, reverse("jag testar") should return the string "ratset gaj".
 // ---------------------
-
-function reverse(){
+// I need to create a string and then return the reverse of it.
+function reverse(words){
     "use strict";
+ reverse = function(str){
+  var result = " ";
+  var wordArray = str.split(" ");
+  for(var i=wordArray.length - 1; i >= 0; i--) {
+    result += wordArray[i] + " ";
+  }
+  return result.trim();
+}
+
     //...
 }
+
+console.log(reverse('the cat'));
 
 // ---------------------
 // Write a function findLongestWord() that takes an array of words and returns the length of the longest one.
@@ -118,10 +130,19 @@ function findLongestWord(words){
 // Write a function filterLongWords() that takes an array of words and an integer i and returns the array of words that are longer than i.
 // ---------------------
 
-function filterLongWords(string){
-    "use strict";
-
-}
+function filterLongWords(words, i){
+		var filtered = new Array();
+		var j = 0;
+		for(var m = 0; m < words.length; m++){
+			if(words[m].length > i){
+				filtered[j] = words[m];
+				j++;
+			}
+		}
+		return filtered;
+	}
+  var wordlist = [ 'camp', 'hammock', 'castiron']
+  console.log('array of words longer than integer:', filterLongWords(wordList, 5));
 
 
 // ---------------------
@@ -130,5 +151,14 @@ function filterLongWords(string){
 
 function charFreq(string){
     "use strict";
-    //...
-}
+    var frequecyList = {};
+    for (var i = 0; i < string.length; i++){
+      if (frequencyList[string[i]]){
+        frequencyList[string[i]]++
+      }else{
+        frequencyList[string[i]] = 1;
+      }
+    }
+    return frequencyList;
+
+    console.log('frequency Listing as Object:', charFreq('abbabcbdbabdbdbabababcbcbab'));
